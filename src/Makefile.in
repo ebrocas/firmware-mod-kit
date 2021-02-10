@@ -1,9 +1,10 @@
 CC := gcc
 CXX := g++
 INCLUDEDIR = .
-CFLAGS := -I$(INCLUDEDIR) -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -O2 -fcommon
+CFLAGS := -I$(INCLUDEDIR) -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -O2 
 
 all: asustrx addpattern untrx motorola-bin splitter3 bffutils unjffs2
+	export CFLAGS='-fcommon'
 	make -C ./uncramfs/
 	make -C ./uncramfs-lzma/
 	make -C ./cramfs-2.x/
